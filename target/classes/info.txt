@@ -1,3 +1,0 @@
-https://www.bezkoder.com/spring-boot-jpa-h2-example/#:~:text=Run%20%26%20Test-,Overview%20of%20Spring%20Boot%20JPA%20%2B%20H2%20example,retrieve%2C%20update%2C%20delete%20Tutorials.
-
-https://www.baeldung.com/spring-boot-h2-database

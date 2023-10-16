@@ -34,20 +34,37 @@ class OneServiceTest
 	void testGetTutorialRepository()
 	{
 		assertNotNull(oneService);
-		assertNotNull(oneService.getTutorialRepository());
-		List<Tutorial> list = oneService.getTutorialRepository().findAll();
+		List<Tutorial> list = oneService.findAll();
 		assertNotNull(list);
-		oneService.getTutorialRepository().save(new Tutorial("aaa","now is "+new Date(),true));
-		list = oneService.getTutorialRepository().findAll();
+		oneService.save(new Tutorial("aaa","now is "+new Date(),true));
+		list = oneService.findAll();
 		assertTrue(list.size()>0);
 		System.out.println("Sum size: "+list.size()+" first item:\n"+list.get(0));
-		//
+//		//
 		long lastId = list.get(list.size()-1).getId();
-		Optional<Tutorial> itemById = oneService.getTutorialRepository().findById(lastId);
+		Optional<Tutorial> itemById = oneService.findById(lastId);
 		System.out.println("itemById, lastId: "+lastId+" present: "+itemById.isPresent());
 		if(itemById.isPresent())System.out.println("itemById: "+itemById.get());
-		
+//		
 		
 	}
 
+	@Test
+	void testSaveExtTutorialRepository()
+	{
+		assertNotNull(oneService);
+		List<Tutorial> list = oneService.findAll();
+		assertNotNull(list);
+		oneService.saveExt(new Tutorial("ext","now is "+new Date(),true));
+		list = oneService.findAll();
+		assertTrue(list.size()>0);
+		System.out.println("Sum size: "+list.size()+" first item:\n"+list.get(0));
+//		//
+		long lastId = list.get(list.size()-1).getId();
+		Optional<Tutorial> itemById = oneService.findById(lastId);
+		System.out.println("itemById, lastId: "+lastId+" present: "+itemById.isPresent());
+		if(itemById.isPresent())System.out.println("itemById: "+itemById.get());
+//		
+		
+	}
 }
